@@ -19,19 +19,17 @@ pre {
 }
 
 a {
-  color: #000;
-  &:visited {
-    color: #666;
-  }
-  &:hover {
-    color: #fff;
-    background-color: #000;
-  }
+  color: #666;
+  text-decoration: none;
+  font-size: 10px;
 }
 
 div {
   &.field, &.actions {
     margin-bottom: 10px;
+    font-size: 10px;
+    color: #888888;
+    display: inline;
   }
 }
 
@@ -66,4 +64,11 @@ div {
     font-size: 12px;
     list-style: square;
   }
+}
+
+th
+{
+  text-align:center;
+  background-color: #555555;
+  color: #ffffff;
 }

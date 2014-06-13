@@ -17,14 +17,11 @@ class EntriesController < ApplicationController
     @entry = Entry.new
   end
 
-  # GET /entries/1/edit
-  def edit
-  end
-
   # translation
   def translate
     @entry = Entry.new(entry_params)
     translator_client = BingTranslator.new('Qube_translate', '83w9saKc30/5IWhphrRKwzgyPeme2kMm0bBtVKDTNWY=')
+    @entry.from = translator_client.detect(@entry.input)  if @entry.from == ""
     @entry.output = translator_client.translate @entry.input, from: @entry.from, to: @entry.to
   end
 
@@ -41,20 +38,6 @@ class EntriesController < ApplicationController
         format.json { render json: @entry.errors, status: :unprocessable_entity }
       end
     end  
-  end
-
-  # PATCH/PUT /entries/1
-  # PATCH/PUT /entries/1.json
-  def update
-    respond_to do |format|
-      if @entry.update(entry_params)
-        format.html { redirect_to @entry, notice: 'Translation was successfully updated.' }
-        format.json { render :show, status: :ok, location: @entry }
-      else
-        format.html { render :edit }
-        format.json { render json: @entry.errors, status: :unprocessable_entity }
-      end
-    end
   end
 
   # DELETE /entries/1

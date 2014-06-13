@@ -13,9 +13,4 @@
  *= require_tree .
  *= require_self
  */
-th
-{
-	text-align:center;
-	background-color: #000000;
-	color: #ffffff;
-}
+
