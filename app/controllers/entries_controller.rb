@@ -19,7 +19,6 @@ class EntriesController < ApplicationController
 
   # translation
   def translate
-    @entry = Entry.new(entry_params)
     translator_client = BingTranslator.new('Qube_translate', '83w9saKc30/5IWhphrRKwzgyPeme2kMm0bBtVKDTNWY=')
     @entry.from = translator_client.detect(@entry.input)  if @entry.from == ""
     @entry.output = translator_client.translate @entry.input, from: @entry.from, to: @entry.to
@@ -28,6 +27,7 @@ class EntriesController < ApplicationController
   # POST /entries
   # POST /entries.json
   def create
+    @entry = Entry.new(entry_params)
     translate
     respond_to do |format|
       if @entry.save
