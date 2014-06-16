@@ -12,16 +12,16 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :input %>
-    <%= f.text_field :input, placeholder: "Enter here" %>
+    <% f.label :input %>
+    <%= f.text_field :input, placeholder: " Enter here", required: true%>
   </div>
   <div class="field">
     <%= f.label :from %>
-    <%= f.select(:from, options_for_select([["Don't know", nil],['English', 'en'], ['Spanish', 'es']])) %>
+    <%= f.select(:from, options_for_select(LANGUAGELIST)) %>
   </div>
   <div class="field">
     <%= f.label :to %>
-    <%= f.select(:to, options_for_select([['English', 'en'], ['Spanish', 'es']])) %>
+    <%= f.select(:to, options_for_select(LANGUAGELIST[1...46])) %>
   </div>
   <div class="actions">
     <%= f.submit "Translate Now"%>

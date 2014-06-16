@@ -1,23 +1,10 @@
 <p id="notice"><%= notice %></p>
-
+</br></br>
 <p>
-  <strong>Input:</strong>
-  <%= @entry.input %>
+  <h3><%= @entry.input %></h3>
+   in <%= @entry.language_name(@entry.from) %> is 
+   <h3><%= @entry.output %></h3>
+    in <%= @entry.language_name(@entry.to) %>
 </p>
-
-<p>
-  <strong>From:</strong>
-  <%= @entry.from %>
-</p>
-
-<p>
-  <strong>To:</strong>
-  <%= @entry.to %>
-</p>
-
-<p>
-  <strong>Output:</strong>
-  <%= @entry.output %>
-</p>
-
+</br></br>
 <%= link_to 'Back', translate_path %>

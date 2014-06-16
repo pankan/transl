@@ -1,3 +1,10 @@
 class Entry < ActiveRecord::Base
-	validates_presence_of :input, message: "*Entry can't be blank"
+	  def language_name (code)
+    LANGUAGELIST.each do
+      |l_code|
+      if l_code[1] == code
+        return l_code[0]
+      end
+    end
+  end
 end

@@ -1,15 +1,41 @@
+html { 
+  background: url(/bg.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
 body {
-  background-color: #fff;
-  color: #333;
+  background-color: rgba(57, 38, 10, 0.5);
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
+  margin:50px 0px;
+  padding:20px;
+  text-align:center;
+  color: rgba(252, 240, 224, 1);
+}
+h1 {
+  font-size: 90px;
+  color: rgba(230, 198, 153, 0.63);
+}
+h2 {
+  font-size: 28px;
+  color: rgba(230, 198, 153, 1);
+}
+h3 {
+  display: inline;
+  color: rgba(252, 240, 224, 1);
 }
 
 p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
+  color: rgba(252, 240, 224, 0.8);
+}
+p {
+  display: inline;
 }
 
 pre {
@@ -19,7 +45,8 @@ pre {
 }
 
 a {
-  color: #666;
+  color: rgba(252, 240, 224, 0.8);
+  font-weight: bold;
   text-decoration: none;
   font-size: 10px;
 }
@@ -28,47 +55,47 @@ div {
   &.field, &.actions {
     margin-bottom: 10px;
     font-size: 10px;
-    color: #888888;
+    font-weight: bold;
+    color: rgba(252, 240, 224, 1);
     display: inline;
   }
 }
 
 #notice {
-  color: green;
-}
-
-.field_with_errors {
-  padding: 2px;
-  background-color: red;
-  display: table;
-}
-
-#error_explanation {
-  width: 450px;
-  border: 2px solid red;
-  padding: 7px;
-  padding-bottom: 0;
-  margin-bottom: 20px;
-  background-color: #f0f0f0;
-  h2 {
-    text-align: left;
-    font-weight: bold;
-    padding: 5px 5px 5px 15px;
-    font-size: 12px;
-    margin: -7px;
-    margin-bottom: 0px;
-    background-color: #c00;
-    color: #fff;
-  }
-  ul li {
-    font-size: 12px;
-    list-style: square;
-  }
+  color: rgba(230, 198, 153, 1);
 }
 
 th
 {
   text-align:center;
-  background-color: #555555;
+  background-color: rgba(255,255,255,0.2);
+  color: rgba(230, 198, 153, 1);
+}
+input {
+  background-color:rgba(255,255,255,0.2);
+  border: 0px solid;
+  height:30px;
+  width:260px;
+  border-radius:0px;
+  font-size: 14px;
   color: #ffffff;
+}
+input:focus{
+  outline:none;
+}
+
+select {
+  background-color: rgba(255,255,255,0.2);
+  margin: 3px;
+  width: auto;
+  padding: 5px;
+  font-size: 14px;
+  color: #ffffff;
+  line-height: 1;
+  border: 0;
+  border-radius: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  height: 30px;
+
 }

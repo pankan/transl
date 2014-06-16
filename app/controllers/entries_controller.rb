@@ -1,5 +1,13 @@
 class EntriesController < ApplicationController
-  before_action :set_entry, only: [:show, :edit, :update, :destroy]
+  before_action :set_entry, only: [:show, :destroy]
+  @@translator_client = BingTranslator.new('Qube_translate', '83w9saKc30/5IWhphrRKwzgyPeme2kMm0bBtVKDTNWY=')
+  # available_lang_codes = @translator_client.supported_language_codes
+  # $language_list = available_lang_codes.each do 
+  #   |lang_code|
+  #   [@@translator_client.language_names(lang_code), lang_code]
+  # end
+  
+
 
   # GET /entries
   # GET /entries.json
@@ -7,8 +15,8 @@ class EntriesController < ApplicationController
     @entries = Entry.all
   end
 
-  # GET /entries/1
-  # GET /entries/1.json
+  # GET /entries/:id
+  # GET /entries/:id.json
   def show
   end
 
@@ -19,9 +27,8 @@ class EntriesController < ApplicationController
 
   # translation
   def translate
-    translator_client = BingTranslator.new('Qube_translate', '83w9saKc30/5IWhphrRKwzgyPeme2kMm0bBtVKDTNWY=')
-    @entry.from = translator_client.detect(@entry.input)  if @entry.from == ""
-    @entry.output = translator_client.translate @entry.input, from: @entry.from, to: @entry.to
+    @entry.from = @@translator_client.detect(@entry.input)  if @entry.from == ""
+    @entry.output = @@translator_client.translate @entry.input, from: @entry.from, to: @entry.to
   end
 
   # POST /entries
