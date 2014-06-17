@@ -1,14 +1,15 @@
 class EntriesController < ApplicationController
   before_action :set_entry, only: [:show, :destroy]
+  #Bing Translator client and credentials
   @@translator_client = BingTranslator.new('Qube_translate', '83w9saKc30/5IWhphrRKwzgyPeme2kMm0bBtVKDTNWY=')
+  
+  # This snippet is not supported in rails 4. Find the subsitute language_list.rb in initializers
   # available_lang_codes = @translator_client.supported_language_codes
   # $language_list = available_lang_codes.each do 
   #   |lang_code|
   #   [@@translator_client.language_names(lang_code), lang_code]
   # end
   
-
-
   # GET /entries
   # GET /entries.json
   def index
@@ -38,7 +39,7 @@ class EntriesController < ApplicationController
     translate
     respond_to do |format|
       if @entry.save
-        format.html { redirect_to @entry, notice: 'Successfully translated.' }
+        format.html { redirect_to root_path, notice: 'Successfully translated.' }
         format.json { render :show, status: :created, location: @entry }
       else
         format.html { render :new }
@@ -47,8 +48,8 @@ class EntriesController < ApplicationController
     end  
   end
 
-  # DELETE /entries/1
-  # DELETE /entries/1.json
+  # DELETE /entries/:id
+  # DELETE /entries/:id.json
   def destroy
     @entry.destroy
     respond_to do |format|
@@ -63,7 +64,7 @@ class EntriesController < ApplicationController
       @entry = Entry.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
+    # Parameter white listing.
     def entry_params
       params.require(:entry).permit(:input, :from, :to)
     end

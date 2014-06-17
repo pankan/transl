@@ -18,6 +18,7 @@ body {
 h1 {
   font-size: 90px;
   color: rgba(230, 198, 153, 0.63);
+  cursor: default;
 }
 h2 {
   font-size: 28px;
@@ -49,6 +50,7 @@ a {
   font-weight: bold;
   text-decoration: none;
   font-size: 10px;
+  cursor:default;
 }
 
 div {
@@ -94,8 +96,29 @@ select {
   line-height: 1;
   border: 0;
   border-radius: 0;
-  -webkit-appearance: none;
-  -moz-appearance: none;
   height: 30px;
 
+}
+select.dropdown { 
+  background-color: green; 
+}
+*::-webkit-input-placeholder {
+  color: rgba(255,255,255,0.8);
+}
+*::-moz-placeholder {
+  color: rgba(255,255,255,0.8);
+}
+*:-ms-input-placeholder {
+  color: rgba(255,255,255,0.8);
+}
+
+#footer{
+  font-size: 10px;
+  position: fixed;
+  left: 0px;
+  bottom: 0px;
+  height: 30px;
+  width: 100%;
+  color: rgba(252, 240, 224, 1);
+  background:rgba(0, 0, 0, 0.5);
 }

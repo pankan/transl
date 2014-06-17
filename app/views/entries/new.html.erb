@@ -1,4 +1,15 @@
 <h1>TRANSLATE</h1>
 <%= render 'form' %>
 </br>
-<%= link_to 'View History', entries_path %>
+<p id="notice"><%= notice %></p>
+</br></br>
+<% if Entry.last.id > 0%>
+<p>Last translation was
+	<h3><%= Entry.last.input %></h3> 
+	from <%= Entry.last.language_name(Entry.last.from) %> to 
+	<h3><%= Entry.last.output %></h3> 
+	in <%= Entry.last.language_name(Entry.last.to) %>
+</p>
+</br></br>
+<%= link_to 'View complete history', entries_path %>
+<% end %>

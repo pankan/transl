@@ -1,5 +1,5 @@
 <h2>Translations History</h2>
-
+<%= link_to 'Back', new_entry_path %>
 <table style="width:300px" align='center'>
   <thead>
     <tr>
@@ -18,7 +18,6 @@
         <td><%= entry.from %></td>
         <td><%= entry.to %></td>
         <td><%= entry.output %></td>
-        <td><%= link_to 'Show', entry %></td>
         <td><%= link_to 'Destroy', entry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
